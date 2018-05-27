@@ -7,7 +7,11 @@
         {
             "name": "PendalF",
             "email": "pendalf@mail.ru"
-        }
+        },
+		{
+			"name": "d1soft",
+			"email": "cloudma001@yandex.ru"
+		}
     ],
     "minimum-stability": "dev",
     "prefer-stable" : true,
