@@ -40,6 +40,8 @@ class Module extends \yii\base\Module
         'basePath' => '@webroot',
         // path for uploaded files in web directory
         'uploadPath' => 'uploads',
+
+        'appAlias' => 'admin'
     ];
 
     /**

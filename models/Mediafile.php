@@ -247,7 +247,7 @@ class Mediafile extends ActiveRecord
         $this->filename = $filename;
         $this->type = $this->file->type;
         $this->size = $this->file->size;
-        $this->url =  '/admin' . $url;
+        $this->url = '/' . $routes['appAlias'] . $url;
 
         return $this->save();
     }
@@ -264,10 +264,8 @@ class Mediafile extends ActiveRecord
         $thumbs = [];
         $basePath = $basePath = Yii::getAlias($routes['basePath']);
         $originalFile = pathinfo($this->url);
-		
-		$storagedUrl = str_replace('admin/', '', $this->url);
-
-        $dirname = str_replace('admin/', '', $originalFile['dirname']);
+        $storedUrl = str_replace($routes['appAlias'], '', $this->url);
+        $dirname =  str_replace($routes['appAlias'], '', $originalFile['dirname']);
         $filename = $originalFile['filename'];
         $extension = $originalFile['extension'];
 
@@ -280,7 +278,7 @@ class Mediafile extends ActiveRecord
 
             $thumbUrl = "$dirname/" . $this->getThumbFilename($filename, $extension, $alias, $width, $height);
 
-            Image::thumbnail("$basePath/{$storagedUrl}", $width, $height, $mode)->save("$basePath/$thumbUrl");
+            Image::thumbnail("$basePath/{$storedUrl}", $width, $height, $mode)->save("$basePath/$thumbUrl");
 
             $thumbs[$alias] = $thumbUrl;
         }
@@ -302,8 +300,8 @@ class Mediafile extends ActiveRecord
     public function createDefaultThumb(array $routes)
     {
         $originalFile = pathinfo($this->url);
-        $dirname = str_replace('admin/', '', $originalFile['dirname']);
-		$storagedUrl = str_replace('admin/', '', $this->url);
+        $storedUrl = str_replace($routes['appAlias'], '', $this->url);
+        $dirname =  str_replace($routes['appAlias'], '', $originalFile['dirname']);
         $filename = $originalFile['filename'];
         $extension = $originalFile['extension'];
 
@@ -314,7 +312,7 @@ class Mediafile extends ActiveRecord
         $height = $size[1];
         $thumbUrl = "$dirname/" . $this->getThumbFilename($filename, $extension, Module::DEFAULT_THUMB_ALIAS, $width, $height);
         $basePath = Yii::getAlias($routes['basePath']);
-        Image::thumbnail("$basePath/{$storagedUrl}", $width, $height)->save("$basePath/$thumbUrl");
+        Image::thumbnail("$basePath/{$storedUrl}", $width, $height)->save("$basePath/$thumbUrl");
     }
 
     /**
@@ -551,10 +549,10 @@ class Mediafile extends ActiveRecord
      */
     public function getOriginalImageSizes(array $routes)
     {
+        $url = str_replace($routes['appAlias'], '', $this->url);
         $basePath = Yii::getAlias($routes['basePath']);
-        return getimagesize("$basePath/{$this->url}");
+        return getimagesize("$basePath/{$url}");
     }
-
     /**
      * @return string file size
      */

@@ -16,12 +16,12 @@ function filemanagerTinyMCE(callback, value, meta) {
             input.trigger("fileInsert", [data]);
 
             callback(data.url, {alt: data.alt});
-            modal.modal("hide");
+            modal.hide();
         });
     });
 
     modal.find(".modal-body").html(iframe);
-    modal.modal("show");
+    modal.show();
 }
 
 function getFormData(form) {
@@ -63,7 +63,7 @@ $(document).ready(function() {
             }
 
             input.val(data[pasteData]);
-            modal.modal("hide");
+            modal.hide();
         });
     }
 
@@ -76,7 +76,7 @@ $(document).ready(function() {
 
         iframe.on("load", frameHandler);
         modal.find(".modal-body").html(iframe);
-        modal.modal("show");
+        modal.show();
     });
 
     $('[role="clear-input"]').on("click", function(e) {
