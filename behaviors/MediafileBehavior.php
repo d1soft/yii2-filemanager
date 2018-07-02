@@ -1,11 +1,11 @@
 <?php
-namespace pendalf89\filemanager\behaviors;
+namespace d1soft\filemanager\behaviors;
 
 use yii;
 use yii\base\Behavior;
 use yii\db\ActiveRecord;
-use pendalf89\filemanager\models\Mediafile;
-use pendalf89\filemanager\models\Owners;
+use d1soft\filemanager\models\Mediafile;
+use d1soft\filemanager\models\Owners;
 
 class MediafileBehavior extends Behavior
 {

@@ -1,6 +1,6 @@
 <?php
 
-use pendalf89\filemanager\Module;
+use d1soft\filemanager\Module;
 use kartik\alert\Alert;
 use yii\helpers\Html;
 

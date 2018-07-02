@@ -1,8 +1,8 @@
 <?php
 
 use yii\helpers\Html;
-use pendalf89\filemanager\Module;
-use pendalf89\filemanager\assets\FilemanagerAsset;
+use d1soft\filemanager\Module;
+use d1soft\filemanager\assets\FilemanagerAsset;
 
 /* @var $this yii\web\View */
 
