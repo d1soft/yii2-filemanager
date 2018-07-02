@@ -1,6 +1,6 @@
 <?php
 
-namespace pendalf89\filemanager\models;
+namespace d1soft\filemanager\models;
 
 use Yii;
 use yii\web\UploadedFile;
@@ -10,8 +10,8 @@ use yii\imagine\Image;
 use yii\data\ActiveDataProvider;
 use yii\helpers\Html;
 use yii\helpers\Inflector;
-use pendalf89\filemanager\Module;
-use pendalf89\filemanager\models\Owners;
+use d1soft\filemanager\Module;
+use d1soft\filemanager\models\Owners;
 use Imagine\Image\ImageInterface;
 
 /**
